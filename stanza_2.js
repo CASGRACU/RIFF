@@ -57,7 +57,7 @@ function setup_molla(){
 	ang_bin_molla = ang_bin_molla_start + var_prosp
 
 
-
+	song.play();
 	binarioProsp()
 
 

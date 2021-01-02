@@ -32,6 +32,9 @@ function setup_Vornoi() {
   //interpolateRainbow
   //d3.schemeTableau10[i%10]
   
+
+
+  song.play();
 }
 
 

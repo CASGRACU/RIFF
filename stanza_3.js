@@ -73,6 +73,8 @@ function setup_zoo(){
   // console.log("new - " + vel_zooElement)
   // createCanvas(w,h,WEBGL)
 
+  song.play();
+
 }
 
 

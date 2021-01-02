@@ -10,6 +10,7 @@ function setup_mindRiff(){
 
 
 	textSize(sizeText);
+	song.play();
 	
 	// list_mindRiff = list_mindRiff_inside
 	
