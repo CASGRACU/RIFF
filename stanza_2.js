@@ -59,8 +59,8 @@ function setup_molla(){
 
 	song.play();
 	binarioProsp()
-
-
+	
+	random_speed()
 }
 
 function draw_molla(){	

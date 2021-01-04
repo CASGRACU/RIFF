@@ -74,6 +74,7 @@ function setup_zoo(){
   // createCanvas(w,h,WEBGL)
 
   song.play();
+  random_speed()
 
 }
 

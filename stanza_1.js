@@ -1,16 +1,32 @@
+l_box = window.innerWidth;
+h_box = window.innerHeigt;
+
+
+
 p5.disableFriendlyErrors = true;
 
 const HALFPI = Math.PI*0.5
 const RAND = (min, max) => Math.random() * (max - min) + min //d3.randomUniform
 let W, H, polygons, voronoi, positions, velocities, colors;
-NUM = 1
+NUM_start = 1
+
+/// SET-IMGGRAPHICS
+let graphics2d_stz1;
+let graphics3d_stz1;
+
 
 function setup_Vornoi() {
 
-  NUM = 1 + int(var_ind)
+
+  graphics2d_stz1 = createGraphics(w,h)
+  graphics3d_stz1 = createGraphics(w,h,WEBGL)
+
+  NUM = NUM_start + int(var_ind)
+  prosp_vooronoi = var_prosp/100
 
 
   ctx = canvas.getContext("2d");
+
   [W, H] = [windowWidth, windowHeight];
   createCanvas(W, H);
 
@@ -31,18 +47,20 @@ function setup_Vornoi() {
   //interpolateWarm
   //interpolateRainbow
   //d3.schemeTableau10[i%10]
-  
-
 
   song.play();
+  random_speed()
+  
 }
 
 
 function draw_Vornoi() {
 
   //background('#666')
-  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-  
+  graphics2d_stz1.background(color_vorBack)
+  graphics3d_stz1.background(0)
+  cRect = ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
   polygons = voronoi(positions).polygons()
 
   for (let i = 0; i < NUM; i++) {    
@@ -69,23 +87,34 @@ function draw_Vornoi() {
     
     // RENDER (cell)
     push()
-    fill(color_vorSpace)
-    noStroke()
-    beginShape();
-    rverts.map(v => vertex(v.x, v.y));
-    endShape(CLOSE);
+    graphics2d_stz1.fill(color_vorSpace)
+    graphics2d_stz1.noStroke()
+    graphics2d_stz1.beginShape();
+    rv = rverts.map(v => vertex(v.x, v.y));
+    graphics2d_stz1.rv
+    graphics2d_stz1.endShape(CLOSE);
     pop()
     
     // RENDER (site)
-    stroke(color_vorPoint);
-    strokeWeight(10);
-    point(pos[0], pos[1])
+    graphics2d_stz1.stroke(color_vorPoint);
+    graphics2d_stz1.strokeWeight(10);
+    graphics2d_stz1.point(pos[0], pos[1])
     
   }
     
- 
+  // image(graphics2d_stz1, 0, 0)
   // text(frameRate(), 20, 20);
+  graphics3d_stz1.texture(graphics2d_stz1)
+  graphics3d_stz1.push();
+  graphics3d_stz1.translate(0, 0, -10);
+  graphics3d_stz1.rotateX(prosp_vooronoi);
+  graphics3d_stz1.rotateY(prosp_vooronoi/2);
+  graphics3d_stz1.box(W, H, 20);
+  graphics3d_stz1.pop();
 
+  image(graphics3d_stz1,0,0)
+
+  
 }
 
 

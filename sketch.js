@@ -8,9 +8,8 @@ var w_point = 25
 var w_index_point = 15
 var add_wPoint = 12
 
-var ang = 0
-
-var random_speed
+var ang
+var speed
 
 var nav_viz 
 var tviz_nav
@@ -18,18 +17,22 @@ var state_nav_viz = false
 var tviz_NAV = 110
 
 
-var movement = 2
+var movement
 
 path_stz = []
 
 
 
 var stanza 
-var speed = 0.05;
+var speed_01 = 0.05;
+var speed_02 = 0.02;
+var speed_03 = 0.05;
 
-var individuo = 2
-var velocità
-var prospettiva
+//// DATI DA STAMPARE ///
+
+let loop_RIFF = 0
+let cambio_stz_n = 0
+
 
 /// VARIABILI ///
 
@@ -50,6 +53,7 @@ var max_var = 0.07
 var change_var = false
 
 var num_var = 2
+
 
 
 
@@ -128,7 +132,6 @@ function setup() {
 	var w = window.innerWidth;
 	var h = window.innerHeight;
 	
-
 	setup_Vornoi();
 	setup_molla();
 	setup_zoo();
@@ -178,6 +181,8 @@ function draw() {
 	if (ang > 359){
 		ang = 0
 	}
+
+	loop_RIFF = loop_RIFF + 1
 
 
 
@@ -299,7 +304,8 @@ function stateStz(){
 		stanza = 1
 		form_stz = "stz1"
 		path_stz.push(form_stz);
-		
+		cambio_stz_n = cambio_stz_n + 1
+
 		capture_stateMindRiff()
 		setup_Vornoi()
 	}
@@ -315,8 +321,9 @@ function stateStz(){
 		stanza = 2
 		form_stz = "stz2"
 		path_stz.push("stz2");
+		cambio_stz_n = cambio_stz_n + 1
+
 		capture_stateMindRiff()
-		
 		setup_molla();
 		
 	}
@@ -336,8 +343,9 @@ function stateStz(){
 		stanza = 3
 		form_stz = "stz3"
 		path_stz.push(form_stz);
+		cambio_stz_n = cambio_stz_n + 1
+
 		capture_stateMindRiff()
-		
 		setup_zoo();
 		
 
@@ -354,9 +362,9 @@ function stateStz(){
 		stanza = 4
 		form_stz = "stz4"
 		path_stz.push(form_stz);
-		capture_stateMindRiff()
+		cambio_stz_n = cambio_stz_n + 1
 
-		
+		capture_stateMindRiff()
 		setup_mindRiff()
 		
 	}
@@ -419,7 +427,27 @@ ellipse(pn[0],pn[1],w_index_point,w_index_point)
 }
 
 
+////// RANDOM SPEED ////
 
+function random_speed() {
+	ind_speed = int(random(3));
+
+	switch (ind_speed) {
+		case 0:
+		  speed = speed_01;
+		  break;
+		case 1:
+		  speed = speed_02;
+		  break;
+		case 2:
+		  speed = speed_03;
+		}
+	console.log(speed)
+}
+
+
+
+////ANELLI RESIDUI - noDisplay////
 
 function residui(){
 
@@ -447,6 +475,8 @@ function residui(){
 
 
 
+//////VARIABILI STANZE////
+
 function append_residuivariabili(){
 
 	if(stanza == 1){
@@ -463,7 +493,7 @@ function append_residuivariabili(){
 function status_var(){
 	console.log("var_ind - " + var_ind)
 	console.log("var_prsop - " + var_prosp)
-	console.log("var_vel - " +var_vel)
+	console.log("var_vel - " + var_vel)
 }
 
 function rang_variabile(min_var,max_var){
@@ -472,6 +502,16 @@ function rang_variabile(min_var,max_var){
 	delta_var_ind = random(min_var,max_var)
 	delta_var_prosp = random(min_var,max_var)
 }
+
+
+
+
+
+
+
+
+
+//////DOWNLOAD AUTOMATICO/////
 
 function download_file(fileURL, fileName) {
     // for non-IE
