@@ -22,7 +22,7 @@ function setup_Vornoi() {
   graphics3d_stz1 = createGraphics(w,h,WEBGL)
 
   NUM = NUM_start + int(var_ind)
-  prosp_vooronoi = var_prosp/100
+  prosp_vooronoi = var_prosp/10
 
 
   ctx = canvas.getContext("2d");
@@ -49,6 +49,8 @@ function setup_Vornoi() {
   //d3.schemeTableau10[i%10]
 
   song.play();
+
+  cambio_stz_n = cambio_stz_n + 1
   random_speed()
   
 }
@@ -57,8 +59,8 @@ function setup_Vornoi() {
 function draw_Vornoi() {
 
   //background('#666')
-  graphics2d_stz1.background(color_vorBack)
   graphics3d_stz1.background(0)
+  graphics2d_stz1.background(color_vorBack)
   cRect = ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
   polygons = voronoi(positions).polygons()

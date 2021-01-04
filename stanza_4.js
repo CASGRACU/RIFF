@@ -12,6 +12,7 @@ function setup_mindRiff(){
 	
 	// list_mindRiff = list_mindRiff_inside
 	
+	cambio_stz_n = cambio_stz_n + 1
 	random_speed()
 }
 

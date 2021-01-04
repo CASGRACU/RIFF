@@ -60,6 +60,7 @@ function setup_molla(){
 	song.play();
 	binarioProsp()
 	
+	cambio_stz_n = cambio_stz_n + 1
 	random_speed()
 }
 

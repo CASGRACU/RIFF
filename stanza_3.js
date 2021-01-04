@@ -43,7 +43,7 @@ function setup_zoo(){
   numero_elementi =  numero_elementi_start + int(var_ind)
   vel_zooElement =  vel_zooElement_start + (var_vel/1000);
 
-  ang_bin_zoo = ang_bin_zoo_start + (var_prosp)
+  ang_bin_zoo = ang_bin_zoo_start + (var_prosp*2)
   binario_prosp_zoo()
 
 
@@ -74,6 +74,8 @@ function setup_zoo(){
   // createCanvas(w,h,WEBGL)
 
   song.play();
+
+  cambio_stz_n = cambio_stz_n + 1
   random_speed()
 
 }
@@ -104,7 +106,7 @@ function create_element(){
 
   select_element = list_setup_element[ne]
   push();
-  rot_element(select_element[0],ang_el + (select_element[1]))
+  rot_element_zoo(select_element[0],ang_el + (select_element[1]))
   graphics_stz3.translate(rot_x,rot_y, rot_z);
   // graphics_stz3.rotateY(frameCount * 0.02);
   graphics_stz3.sphere(r_sfera);
@@ -117,11 +119,11 @@ function create_element(){
 
 
 
-function rot_element(raggio,ang){
+function rot_element_zoo(raggio,ang_zoo){
 
-  rot_x = raggio * cos(radians(ang))
+  rot_x = raggio * cos(radians(ang_zoo))
   rot_y = 0
-  rot_z = raggio * sin(radians(ang))
+  rot_z = raggio * sin(radians(ang_zoo))
 
 }
 

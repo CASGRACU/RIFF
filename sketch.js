@@ -31,7 +31,7 @@ var speed_03 = 0.05;
 //// DATI DA STAMPARE ///
 
 let loop_RIFF = 0
-let cambio_stz_n = 0
+let cambio_stz_n = -2
 
 
 /// VARIABILI ///
@@ -304,7 +304,6 @@ function stateStz(){
 		stanza = 1
 		form_stz = "stz1"
 		path_stz.push(form_stz);
-		cambio_stz_n = cambio_stz_n + 1
 
 		capture_stateMindRiff()
 		setup_Vornoi()
@@ -321,7 +320,6 @@ function stateStz(){
 		stanza = 2
 		form_stz = "stz2"
 		path_stz.push("stz2");
-		cambio_stz_n = cambio_stz_n + 1
 
 		capture_stateMindRiff()
 		setup_molla();
@@ -343,7 +341,6 @@ function stateStz(){
 		stanza = 3
 		form_stz = "stz3"
 		path_stz.push(form_stz);
-		cambio_stz_n = cambio_stz_n + 1
 
 		capture_stateMindRiff()
 		setup_zoo();
@@ -362,7 +359,6 @@ function stateStz(){
 		stanza = 4
 		form_stz = "stz4"
 		path_stz.push(form_stz);
-		cambio_stz_n = cambio_stz_n + 1
 
 		capture_stateMindRiff()
 		setup_mindRiff()
