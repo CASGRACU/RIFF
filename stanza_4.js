@@ -41,12 +41,12 @@ function drawList(){
 
 		fill("#ac80ff");
 		text("––––––––––––––––––––––––––––––––––––––",         marginLeft, h - ((interLine*8)+(alt_blocco*el_mRiff)));
-		text("ingresso: " + single_elementListRiff_s[0],       marginLeft, h - ((interLine*7)+(alt_blocco*el_mRiff)));
-		text("cambio_stz_n.: " + single_elementListRiff_s[5],  marginLeft, h - ((interLine*6)+(alt_blocco*el_mRiff)));
+		text("enter: " + single_elementListRiff_s[0],       marginLeft, h - ((interLine*7)+(alt_blocco*el_mRiff)));
+		text("change_room_n.: " + single_elementListRiff_s[5],  marginLeft, h - ((interLine*6)+(alt_blocco*el_mRiff)));
 		text("loop_RIFF: " + single_elementListRiff_s[4], 	   marginLeft, h - ((interLine*5)+(alt_blocco*el_mRiff)));
 		text("var_ind: " + single_elementListRiff_s[1],        marginLeft, h - ((interLine*4)+(alt_blocco*el_mRiff)));
 		text("var_prsop: " + single_elementListRiff_s[2],      marginLeft, h - ((interLine*3)+(alt_blocco*el_mRiff)));
-		text("var_vel: " + single_elementListRiff_s[3],        marginLeft, h - ((interLine*2)+(alt_blocco*el_mRiff)));
+		text("var_speed: " + single_elementListRiff_s[3],        marginLeft, h - ((interLine*2)+(alt_blocco*el_mRiff)));
 		text("––––––––––––––––––––––––––––––––––––––",         marginLeft, h - ((interLine*1)+(alt_blocco*el_mRiff)));
 
 	}

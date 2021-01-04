@@ -302,7 +302,7 @@ function stateStz(){
 		}
 
 		stanza = 1
-		form_stz = "stz1"
+		form_stz = "room1"
 		path_stz.push(form_stz);
 
 		capture_stateMindRiff()
@@ -318,8 +318,8 @@ function stateStz(){
 		ang = 0
 
 		stanza = 2
-		form_stz = "stz2"
-		path_stz.push("stz2");
+		form_stz = "room2"
+		path_stz.push("room2");
 
 		capture_stateMindRiff()
 		setup_molla();
@@ -339,7 +339,7 @@ function stateStz(){
 		}
 
 		stanza = 3
-		form_stz = "stz3"
+		form_stz = "room3"
 		path_stz.push(form_stz);
 
 		capture_stateMindRiff()
@@ -357,7 +357,7 @@ function stateStz(){
 		ang = 180
 
 		stanza = 4
-		form_stz = "stz4"
+		form_stz = "room4"
 		path_stz.push(form_stz);
 
 		capture_stateMindRiff()
@@ -396,16 +396,16 @@ function rotAnClock(ang){
 function lineMove(){
 
 	
-	if(form_stz == "stz2"){
+	if(form_stz == "room2"){
 		Pi_x = Pi_x - speed*2
 		Pi_y = 0
-	}if(form_stz == "stz4"){
+	}if(form_stz == "room4"){
 		Pi_x = Pi_x + speed*2
 		Pi_y = 0
-	}if(form_stz == "stz1"){
+	}if(form_stz == "room1"){
 		Pi_x = 0
 		Pi_y = Pi_y + speed*2
-	}if(form_stz == "stz3"){
+	}if(form_stz == "room3"){
 		Pi_x = 0
 		Pi_y = Pi_y - speed*2
 	}
@@ -455,11 +455,11 @@ function residui(){
 
 		strokeWeight(5)
 
-		if(path_stz[i] == "stz1"){
+		if(path_stz[i] == "room1"){
 			stroke(255, 204, 0)
-		}else if(path_stz[i] == "stz2"){
+		}else if(path_stz[i] == "room2"){
 			stroke(255,0,0)
-		}else if(path_stz[i] == "stz3"){
+		}else if(path_stz[i] == "room3"){
 			stroke(255,255,0)
 		}else{
 			stroke(255,0,255)
