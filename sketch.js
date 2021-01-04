@@ -25,7 +25,7 @@ path_stz = []
 
 var stanza 
 var speed_01 = 0.05;
-var speed_02 = 0.02;
+var speed_02 = 0.05;
 var speed_03 = 0.05;
 
 //// DATI DA STAMPARE ///
