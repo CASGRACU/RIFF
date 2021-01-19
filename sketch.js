@@ -224,7 +224,7 @@ function draw() {
 	}
 }
 
-function mousePressed(){
+function touchStarted(){
 	clicked()
 	console.log("s")
 }
