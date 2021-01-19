@@ -38,9 +38,15 @@ P0_molla = [w/2,h/2]
 let graphics;
 
 
+var suono = true
+
 
 function setup_molla(){	
 
+
+	w = window.innerWidth;
+    h = window.innerHeight;
+    createCanvas(w,h);
 	graphics = createGraphics(w,h,WEBGL);	
 	graphics.background(color_molBack)
 
@@ -56,17 +62,27 @@ function setup_molla(){
 
 	ang_bin_molla = ang_bin_molla_start + var_prosp
 
+	if (suono == true){
+		song.play();
+		cambio_stz_n = cambio_stz_n + 1
+		
+	}
 
-	song.play();
 	binarioProsp()
 	
-	cambio_stz_n = cambio_stz_n + 1
 	random_speed()
 }
 
 function draw_molla(){	
 
+	var w_n = window.innerWidth;
+  	var h_n = window.innerHeight;
 
+    if (w_n != w || h_n != h){
+    	suono = false
+    	setup_molla()
+    }
+    suono = true
 
 
 	// fill(0)
@@ -117,7 +133,7 @@ function saveMolla(){
 
 	s_px_molla = P0_molla[0]-pn_molla[0]
 	s_py_molla = P0_molla[1]-pn_molla[1]
-	s_pz_molla = -pn_molla[2]
+	s_pz_molla = - pn_molla[2]
 	s_ang = ang_molla
 
 	sing_points = [s_px_molla,s_py_molla,s_pz_molla,s_ang]

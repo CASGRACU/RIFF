@@ -6,18 +6,35 @@ var interLine = sizeText_stz4*1.6
 var marginLeft = 50
 var marginLeft_loop = w/2-10
 
+
+suono = true
+
 function setup_mindRiff(){
+
+	w = window.innerWidth;
+  	h = window.innerHeight;
+  	createCanvas(w,h);
 	textSize(sizeText_stz4);
-	song.play();
 	
 	// list_mindRiff = list_mindRiff_inside
-	
-	cambio_stz_n = cambio_stz_n + 1
+	if (suono == true){
+    	song.play();
+    	cambio_stz_n = cambio_stz_n + 1
+    }
 	random_speed()
 }
 
 
 function draw_mindRiff(){
+	var w_n = window.innerWidth;
+    var h_n = window.innerHeight;
+
+    if (w_n != w || h_n != h){
+      suono = false     
+      setup_mindRiff()
+    }		
+    suono = true
+
 	textSize(sizeText_stz4);
 	background(1)
 	drawList()
@@ -27,7 +44,6 @@ function draw_mindRiff(){
 
 
 function drawList(){
-
 
 	len_mindRiff = list_mindRiff.length
 

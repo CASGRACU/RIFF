@@ -31,13 +31,14 @@ ang_bin_zoo_start = 90
 let graphics_stz3
 
 
-
+var suono = true
 
 function setup_zoo(){
 
 
-  var w = window.innerWidth;
-  var h = window.innerHeight;
+  w = window.innerWidth;
+  h = window.innerHeight;
+  createCanvas(w,h);
 
   var ang_el = 0
   numero_elementi =  numero_elementi_start + int(var_ind)
@@ -73,9 +74,11 @@ function setup_zoo(){
   // console.log("new - " + vel_zooElement)
   // createCanvas(w,h,WEBGL)
 
-  song.play();
-
-  cambio_stz_n = cambio_stz_n + 1
+  if (suono == true){
+    song.play();
+    cambio_stz_n = cambio_stz_n + 1
+    
+    }
   random_speed()
 
 }
@@ -83,6 +86,15 @@ function setup_zoo(){
 
 
 function draw_zoo(){
+
+  var w_n = window.innerWidth;
+  var h_n = window.innerHeight;
+
+    if (w_n != w || h_n != h){
+      suono = false     
+      setup_zoo()
+    }
+  suono = true  
 
   graphics_stz3.background(color_zooBack)
   graphics_stz3.camera(point_bin_zoo[0],point_bin_zoo[1],point_bin_zoo[2],0,0,0,0,1,0)

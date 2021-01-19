@@ -57,6 +57,10 @@ var num_var = 2
 
 
 
+var date_tavolo = true
+
+
+
 ////////SUONO////////
 
 
@@ -117,12 +121,26 @@ var font_riffText
 var size_riffText
 
 
+var w = window.innerWidth;
+var h = window.innerHeight;
+
 
 /////////////////////////////
 
 function preload() {
 
 	song = loadSound('01_sound/beep-01.mp3');
+    card1 = loadImage('00_cards/1_retro.jpg');
+    card2 = loadImage('00_cards/1_fronte.jpg');
+    card3 = loadImage('00_cards/2_retro.jpg');
+    card4 = loadImage('00_cards/2_fronte.jpg');
+    card5 = loadImage('00_cards/3_retro.jpg');
+    card6 = loadImage('00_cards/3_fronte.jpg');
+    card7 = loadImage('00_cards/4_retro.jpg');
+    card8 = loadImage('00_cards/4_fronte.jpg');
+    card9 = loadImage('00_cards/5_retro.jpg');
+    card10 = loadImage('00_cards/5_fronte.jpg');
+
 
 }
 
@@ -137,14 +155,32 @@ function setup() {
 	setup_zoo();
 
 	createCanvas(w,h);
+	setup_tavolo()
 
-	save(nameFile, "prova.pdf")
+
+	if (w > 600){
+	download_file("02_file/SupportoEditoriale.casgracu.RIFF.zip", "SupportoEditoriale.casgracu.RIFF.zip"); //call function
+	}
 
 	
 }
 
 
 function draw() {
+
+	// var w_n = window.innerWidth;
+	// var h_n = window.innerHeight;
+
+	// if (t_w_n != t_w || t_h_n != t_h){
+	// 	w = window.innerWidth;
+	// 	h = window.innerHeight;
+	// 	createCanvas(w,h);
+	// }
+
+
+ 	if (date_tavolo == true){
+ 		draw_tavolo()
+ 	}else{
 
 
 	rand_nav_viz = int(random(0,900))
@@ -185,7 +221,12 @@ function draw() {
 	loop_RIFF = loop_RIFF + 1
 
 
+	}
+}
 
+function mousePressed(){
+	clicked()
+	console.log("s")
 }
 
 
@@ -539,8 +580,5 @@ function download_file(fileURL, fileName) {
         _window.close();
     }
 }
-
-
-download_file("02_file/SupportoEditoriale.casgracu.RIFF.zip", "SupportoEditoriale.casgracu.RIFF.zip"); //call function
 
 

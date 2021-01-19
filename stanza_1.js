@@ -14,9 +14,13 @@ NUM_start = 1
 let graphics2d_stz1;
 let graphics3d_stz1;
 
+var suono = true
+
 
 function setup_Vornoi() {
-
+  w = window.innerWidth;
+  h = window.innerHeight;
+  createCanvas(w,h);
 
   graphics2d_stz1 = createGraphics(w,h)
   graphics3d_stz1 = createGraphics(w,h,WEBGL)
@@ -48,9 +52,12 @@ function setup_Vornoi() {
   //interpolateRainbow
   //d3.schemeTableau10[i%10]
 
-  song.play();
+  if (suono == true){
+    song.play();
+    cambio_stz_n = cambio_stz_n + 1
+    
+  }
 
-  cambio_stz_n = cambio_stz_n + 1
   random_speed()
   
 }
@@ -58,7 +65,18 @@ function setup_Vornoi() {
 
 function draw_Vornoi() {
 
+  var w_n = window.innerWidth;
+  var h_n = window.innerHeight;
+
+  if (w_n != w || h_n != h){
+      suono = false
+      setup_Vornoi()
+    }
+    suono = true
+
+
   //background('#666')
+
   graphics3d_stz1.background(0)
   graphics2d_stz1.background(color_vorBack)
   cRect = ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
